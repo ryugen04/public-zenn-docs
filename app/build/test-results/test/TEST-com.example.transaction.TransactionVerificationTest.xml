@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.transaction.TransactionVerificationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-27T12:45:34" hostname="glaucus03-System-Product-Name" time="0.594">
+  <properties/>
+  <testcase name="パターン1: @Transactional + DataSourceUtils - 正常ケース" classname="com.example.transaction.TransactionVerificationTest" time="0.594"/>
+  <system-out><![CDATA[21:45:30.479 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.transaction.TransactionVerificationTest]: TransactionVerificationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:45:30.551 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.transaction.TransactionTestApplication for test class com.example.transaction.TransactionVerificationTest
+21:45:30.637 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+21:45:30.639 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+21:45:30.764 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+21:45:30.923 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+21:45:30.924 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+21:45:30.937 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 27.5.1
+  API Version: 1.47
+  Operating System: Ubuntu 24.04.2 LTS
+  Total Memory: 96441 MB
+21:45:30.960 [Test worker] INFO tc.testcontainers/ryuk:0.5.1 -- Creating container for image: testcontainers/ryuk:0.5.1
+21:45:31.043 [Test worker] INFO tc.testcontainers/ryuk:0.5.1 -- Container testcontainers/ryuk:0.5.1 is starting: 607d00d0c7be8dfc74de6abad36c5aa5ea4019a94e3ad9fd49fc7bba622b5e48
+21:45:31.331 [Test worker] INFO tc.testcontainers/ryuk:0.5.1 -- Container testcontainers/ryuk:0.5.1 started in PT0.371210049S
+21:45:31.335 [Test worker] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+21:45:31.335 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+21:45:31.335 [Test worker] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+21:45:31.336 [Test worker] INFO tc.postgres:15-alpine -- Creating container for image: postgres:15-alpine
+21:45:31.361 [Test worker] INFO tc.postgres:15-alpine -- Container postgres:15-alpine is starting: 418f1471614bce538f47c71b8359d11c38acc9a4d7cc824b47065efee7bdea0b
+21:45:32.864 [Test worker] INFO tc.postgres:15-alpine -- Container postgres:15-alpine started in PT1.528152837S
+21:45:32.865 [Test worker] INFO tc.postgres:15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:32779/testdb?loggerLevel=OFF)
+21:45:32.870 [Test worker] INFO org.testcontainers.ext.ScriptUtils -- Executing database script from schema.sql
+21:45:33.015 [Test worker] INFO org.testcontainers.ext.ScriptUtils -- Executed database script from schema.sql in 145 ms.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2025-09-27T21:45:33.205+09:00  INFO 1091029 --- [    Test worker] c.e.t.TransactionVerificationTest        : Starting TransactionVerificationTest using Java 21.0.7 with PID 1091029 (started by glaucus03 in /home/glaucus03/dev/projects/public-zenn-docs/app)
+2025-09-27T21:45:33.206+09:00  INFO 1091029 --- [    Test worker] c.e.t.TransactionVerificationTest        : No active profile set, falling back to 1 default profile: "default"
+2025-09-27T21:45:33.959+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2025-09-27T21:45:33.960+09:00  INFO 1091029 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-27T21:45:33.982+09:00  INFO 1091029 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4315fe1b
+2025-09-27T21:45:33.983+09:00  INFO 1091029 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-27T21:45:33.985+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from file [/home/glaucus03/dev/projects/public-zenn-docs/app/build/resources/main/schema.sql]
+2025-09-27T21:45:33.995+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS orders CASCADE
+2025-09-27T21:45:33.998+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS users CASCADE
+2025-09-27T21:45:34.003+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE users ( id BIGSERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, email VARCHAR(255), created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP )
+2025-09-27T21:45:34.008+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE orders ( id BIGSERIAL PRIMARY KEY, user_id BIGINT NOT NULL REFERENCES users(id), product_name VARCHAR(255) NOT NULL, amount DECIMAL(10,2) NOT NULL, created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP )
+2025-09-27T21:45:34.010+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from file [/home/glaucus03/dev/projects/public-zenn-docs/app/build/resources/main/schema.sql] in 23 ms.
+2025-09-27T21:45:34.010+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from file [/home/glaucus03/dev/projects/public-zenn-docs/app/build/resources/test/schema.sql]
+2025-09-27T21:45:34.015+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS orders CASCADE
+2025-09-27T21:45:34.019+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS users CASCADE
+2025-09-27T21:45:34.022+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE users ( id BIGSERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, email VARCHAR(255), created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP )
+2025-09-27T21:45:34.026+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE orders ( id BIGSERIAL PRIMARY KEY, user_id BIGINT NOT NULL REFERENCES users(id), product_name VARCHAR(255) NOT NULL, amount DECIMAL(10,2) NOT NULL, created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP )
+2025-09-27T21:45:34.026+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from file [/home/glaucus03/dev/projects/public-zenn-docs/app/build/resources/test/schema.sql] in 16 ms.
+2025-09-27T21:45:34.070+09:00  INFO 1091029 --- [    Test worker] c.e.t.TransactionVerificationTest        : Started TransactionVerificationTest in 1.031 seconds (process running for 4.199)
+2025-09-27T21:45:34.624+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2025-09-27T21:45:34.629+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2025-09-27T21:45:34.634+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Creating new transaction with name [com.example.transaction.UserService.createUserWithTransactionCorrect]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-09-27T21:45:34.636+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Acquired Connection [HikariProxyConnection@1320515149 wrapping org.postgresql.jdbc.PgConnection@2419a5db] for JDBC transaction
+2025-09-27T21:45:34.637+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Switching JDBC Connection [HikariProxyConnection@1320515149 wrapping org.postgresql.jdbc.PgConnection@2419a5db] to manual commit
+2025-09-27T21:45:34.644+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Initiating transaction commit
+2025-09-27T21:45:34.645+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Committing JDBC transaction on Connection [HikariProxyConnection@1320515149 wrapping org.postgresql.jdbc.PgConnection@2419a5db]
+2025-09-27T21:45:34.646+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.support.JdbcTransactionManager  : Releasing JDBC Connection [HikariProxyConnection@1320515149 wrapping org.postgresql.jdbc.PgConnection@2419a5db] after transaction
+2025-09-27T21:45:34.673+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2025-09-27T21:45:34.675+09:00 DEBUG 1091029 --- [    Test worker] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/home/glaucus03/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.10/90ed94ac044ea8953b224304c762316e91fd6b31/byte-buddy-agent-1.14.10.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

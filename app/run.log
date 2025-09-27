@@ -1,0 +1,36 @@
+> Task :compileJava
+> Task :processResources
+> Task :classes
+> Task :resolveMainClassName
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2025-09-27T12:00:39.891+09:00  INFO 340406 --- [           main] c.e.t.TransactionTestApplication         : Starting TransactionTestApplication using Java 21.0.7 with PID 340406 (/home/glaucus03/dev/projects/public-zenn-docs/app/build/classes/java/main started by glaucus03 in /home/glaucus03/dev/projects/public-zenn-docs/app)
+2025-09-27T12:00:39.893+09:00  INFO 340406 --- [           main] c.e.t.TransactionTestApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-09-27T12:00:40.428+09:00  INFO 340406 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-09-27T12:00:40.436+09:00  INFO 340406 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-27T12:00:40.436+09:00  INFO 340406 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-09-27T12:00:40.467+09:00  INFO 340406 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-27T12:00:40.468+09:00  INFO 340406 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 546 ms
+2025-09-27T12:00:40.737+09:00 DEBUG 340406 --- [           main] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2025-09-27T12:00:40.737+09:00  INFO 340406 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-27T12:00:40.845+09:00  INFO 340406 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@77f991c
+2025-09-27T12:00:40.846+09:00  INFO 340406 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-27T12:00:40.847+09:00 DEBUG 340406 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from file [/home/glaucus03/dev/projects/public-zenn-docs/app/build/resources/main/schema.sql]
+2025-09-27T12:00:40.850+09:00 DEBUG 340406 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS orders CASCADE
+2025-09-27T12:00:40.852+09:00 DEBUG 340406 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : SQLWarning ignored: SQL state '00000', error code '0', message [table "orders" does not exist, skipping]
+2025-09-27T12:00:40.853+09:00 DEBUG 340406 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS users CASCADE
+2025-09-27T12:00:40.853+09:00 DEBUG 340406 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : SQLWarning ignored: SQL state '00000', error code '0', message [table "users" does not exist, skipping]
+2025-09-27T12:00:40.862+09:00 DEBUG 340406 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE users ( id BIGSERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, email VARCHAR(255), created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP )
+2025-09-27T12:00:40.866+09:00 DEBUG 340406 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE orders ( id BIGSERIAL PRIMARY KEY, user_id BIGINT NOT NULL REFERENCES users(id), product_name VARCHAR(255) NOT NULL, amount DECIMAL(10,2) NOT NULL, created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP )
+2025-09-27T12:00:40.867+09:00 DEBUG 340406 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from file [/home/glaucus03/dev/projects/public-zenn-docs/app/build/resources/main/schema.sql] in 20 ms.
+2025-09-27T12:00:40.911+09:00  INFO 340406 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-09-27T12:00:40.916+09:00  INFO 340406 --- [           main] c.e.t.TransactionTestApplication         : Started TransactionTestApplication in 1.248 seconds (process running for 1.428)
