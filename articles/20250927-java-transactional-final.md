@@ -6,7 +6,7 @@ topics: ["java"]
 published: false
 ---
 
-# TL;DR
+## TL;DR
 
 Spring Bootで@Transactionalを使い、repositoryをautowiredせずに直接SQLでinsertする場合の動作を調査し、PostgreSQL環境で実際に検証してみました。DataSourceUtils.getConnection()を使えばトランザクション管理が正しく動作することを確認できます。
 
@@ -544,15 +544,13 @@ class TransactionVerificationTest {
 
 ## まとめ
 
-repositoryをautowiredしない場合でも、**DataSourceUtils.getConnection()を使えば@Transactionalが正しく動作する**ことを実証できました。
+repositoryをautowiredしない場合でも、DataSourceUtils.getConnection()を使えば@Transactionalが正しく動作することを動作確認できました。
 
-### 重要なポイント
-
-- **Connection取得方法が決定的**
+- **Connection取得による違い**
   - `DataSourceUtils.getConnection()` → Springのトランザクション管理に参加
   - `dataSource.getConnection()` → 独立したConnectionで@Transactionalは効果なし
 
-- **リソース管理も重要**
+- **リソース管理の動作**
   - `DataSourceUtils.releaseConnection()`で適切にConnection解放
   - トランザクション内外で自動的に適切な処理が実行される
 
@@ -560,7 +558,7 @@ repositoryをautowiredしない場合でも、**DataSourceUtils.getConnection()�
   - auto-commitモードで各SQL文が個別にコミット
   - 複数テーブル操作時にデータ不整合の可能性
 
-実際の検証により理論と実装の両面から動作を確認でき、Springのトランザクション管理の仕組みを深く理解できました。
+Springのトランザクション管理の仕組みについて、少し解像度が上がりました。
 
 ## 参考文献
 
