@@ -1,9 +1,8 @@
-
 ---
 title: "フロントエンドとサーバーでのバリデーション責務分解"
 emoji: "🐱"
 type: "tech"
-topics: ["validation"]
+topics: []
 published: false
 ---
 
