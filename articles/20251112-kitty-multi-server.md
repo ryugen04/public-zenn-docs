@@ -1,3 +1,11 @@
+---
+title: "kittyで複数サーバーを分割ペインで自動起動する方法"
+emoji: "🐱"
+type: "tech"
+topics: ["kitty", "terminal", "productivity", "開発環境"]
+published: false
+---
+
 ## はじめに
 
 Web周りの開発だと、フロントエンドサーバー、バックエンドサーバーみたいに複数のサーバーを同時に起動して、かつログも出力し続けたいことが多いです。
